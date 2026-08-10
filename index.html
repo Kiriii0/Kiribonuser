@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Kiri Bonus | Offres Casino & Communauté</title>
+  <meta name="description" content="Découvre les plateformes, offres casino et contenus que Kiri partage avec sa communauté. Fast Slot, MyStake, Celsius — rejoins la communauté Kiri Bonus." />
+  <meta property="og:title" content="Kiri Bonus | Offres Casino & Communauté" />
+  <meta property="og:description" content="Les plateformes, offres et contenus que je partage avec ma communauté." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#08071A" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── RESET & BASE ──────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #08071A;
+      color: #E8E6FF;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+    /* ─── CSS VARIABLES ─────────────────────────────────────────── */
+    :root {
+      --bg-deep:    #08071A;
+      --bg-mid:     #11102B;
+      --card:       #171437;
+      --card-light: #1E1B4B;
+      --violet:     #7C3AED;
+      --violet-l:   #A855F7;
+      --blue:       #3B82F6;
+      --blue-e:     #60A5FA;
+      --pink:       #EC4899;
+      --pink-l:     #F472B6;
+      --orange:     #F97316;
+      --gold:       #EAB308;
+      --gold-l:     #FDE047;
+      --white:      #FFFFFF;
+      --text-muted: #9CA3AF;
+      --border:     rgba(124,58,237,0.25);
+      --r: 20px;
+    }
+
+    /* ─── SCROLLBAR ─────────────────────────────────────────────── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg-deep); }
+    ::-webkit-scrollbar-thumb { background: var(--violet); border-radius: 2px; }
+
+    /* ─── HEADER ────────────────────────────────────────────────── */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 14px 20px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(8,7,26,0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(124,58,237,0.15);
+    }
+    .logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 18px; font-weight: 700;
+      background: linear-gradient(135deg, #A855F7, #EC4899);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      letter-spacing: 0.5px;
+    }
+    .nav-desktop {
+      display: flex; gap: 28px;
+    }
+    .nav-desktop a {
+      font-size: 13px; font-weight: 600; color: var(--text-muted);
+      letter-spacing: 0.5px; transition: color 0.2s;
+    }
+    .nav-desktop a:hover { color: var(--white); }
+    .ham { display: none; flex-direction: column; gap: 5px; padding: 6px; }
+    .ham span { display: block; width: 22px; height: 2px; background: var(--white); border-radius: 2px; transition: 0.3s; }
+    .mobile-nav {
+      display: none; position: fixed; inset: 0; z-index: 99;
+      background: rgba(8,7,26,0.97);
+      flex-direction: column; align-items: center; justify-content: center;
+      gap: 32px;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      font-size: 22px; font-weight: 700; color: var(--white);
+      letter-spacing: 1px;
+    }
+
+    /* ─── SECTIONS COMMON ───────────────────────────────────────── */
+    section { padding: 80px 20px; }
+    .container { max-width: 480px; margin: 0 auto; }
+    .section-label {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      color: var(--violet-l); text-transform: uppercase;
+      background: rgba(124,58,237,0.12);
+      border: 1px solid rgba(124,58,237,0.3);
+      padding: 6px 14px; border-radius: 100px;
+      margin-bottom: 20px;
+    }
+    .section-label .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--violet-l); animation: pulse 2s infinite; }
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 32px; font-weight: 700; line-height: 1.15;
+      margin-bottom: 12px;
+    }
+    .section-sub { font-size: 15px; color: var(--text-muted); line-height: 1.6; }
+
+    /* ─── HERO ──────────────────────────────────────────────────── */
+    #hero {
+      min-height: 100svh;
+      padding: 0;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(124,58,237,0.35) 0%, transparent 65%),
+        radial-gradient(ellipse 60% 50% at 80% 80%, rgba(236,72,153,0.2) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 10% 70%, rgba(59,130,246,0.2) 0%, transparent 55%),
+        var(--bg-deep);
+    }
+    .hero-stars {
+      position: absolute; inset: 0; z-index: 0;
+      background-image:
+        radial-gradient(1px 1px at 15% 20%, rgba(255,255,255,0.6) 0%, transparent 100%),
+        radial-gradient(1px 1px at 75% 15%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 45% 60%, rgba(255,255,255,0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 85% 70%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 25% 80%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 60% 30%, rgba(255,255,255,0.6) 0%, transparent 100%),
+        radial-gradient(2px 2px at 35% 45%, rgba(168,85,247,0.8) 0%, transparent 100%),
+        radial-gradient(2px 2px at 70% 55%, rgba(236,72,153,0.6) 0%, transparent 100%);
+    }
+    .hero-inner {
+      position: relative; z-index: 1;
+      padding: 120px 24px 80px;
+      width: 100%; max-width: 480px; margin: 0 auto;
+    }
+    .hero-avatar {
+      width: 90px; height: 90px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--violet), var(--pink));
+      margin: 0 auto 24px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 36px; font-weight: 800; color: var(--white);
+      box-shadow: 0 0 0 3px rgba(124,58,237,0.4), 0 0 30px rgba(124,58,237,0.4);
+      position: relative;
+    }
+    .hero-avatar::after {
+      content: ''; position: absolute; inset: -4px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      background: linear-gradient(135deg, var(--violet), var(--pink)) border-box;
+      -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: destination-out; mask-composite: exclude;
+      animation: rotateBorder 4s linear infinite;
+    }
+    @keyframes rotateBorder { to { transform: rotate(360deg); } }
+    .hero-brand {
+      font-size: 11px; font-weight: 700; letter-spacing: 3px;
+      color: var(--violet-l); text-transform: uppercase; margin-bottom: 16px;
+    }
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 42px; font-weight: 700; line-height: 1.1;
+      margin-bottom: 14px;
+    }
+    .hero-title .grad {
+      background: linear-gradient(135deg, #A855F7 0%, #EC4899 50%, #F97316 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero-sub {
+      font-size: 16px; color: var(--text-muted); line-height: 1.65;
+      margin-bottom: 36px; max-width: 340px; margin-left: auto; margin-right: auto;
+    }
+    .hero-ctas { display: flex; flex-direction: column; gap: 12px; }
+    .btn-primary {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 17px 28px; border-radius: 100px;
+      background: linear-gradient(135deg, #7C3AED, #EC4899);
+      color: var(--white); font-size: 15px; font-weight: 700;
+      letter-spacing: 0.3px;
+      box-shadow: 0 8px 32px rgba(124,58,237,0.45);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(124,58,237,0.6); }
+    .btn-primary:active { transform: scale(0.97); }
+    .btn-secondary {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 17px 28px; border-radius: 100px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: var(--white); font-size: 15px; font-weight: 600;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+    .btn-secondary:active { transform: scale(0.97); }
+    .hero-scroll {
+      margin-top: 48px;
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+    }
+    .hero-scroll span { font-size: 12px; color: var(--text-muted); letter-spacing: 1px; }
+    .scroll-arrow { animation: bounce 2s infinite; }
+    @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
+
+    /* ─── STATS ─────────────────────────────────────────────────── */
+    #stats { padding: 0 20px 80px; }
+    .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .stat-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px 18px;
+      position: relative; overflow: hidden;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .stat-card:hover { transform: translateY(-3px); border-color: rgba(124,58,237,0.5); }
+    .stat-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    }
+    .stat-card:nth-child(1)::before { background: linear-gradient(90deg, var(--violet), var(--blue)); }
+    .stat-card:nth-child(2)::before { background: linear-gradient(90deg, var(--gold), var(--orange)); }
+    .stat-card:nth-child(3)::before { background: linear-gradient(90deg, #22C55E, var(--blue-e)); }
+    .stat-card:nth-child(4)::before { background: linear-gradient(90deg, var(--pink), var(--violet-l)); }
+    .stat-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      margin-left: auto; margin-bottom: 10px;
+    }
+    .stat-card:nth-child(1) .stat-dot { background: var(--violet-l); box-shadow: 0 0 8px var(--violet-l); }
+    .stat-card:nth-child(2) .stat-dot { background: var(--gold); box-shadow: 0 0 8px var(--gold); }
+    .stat-card:nth-child(3) .stat-dot { background: #22C55E; box-shadow: 0 0 8px #22C55E; }
+    .stat-card:nth-child(4) .stat-dot { background: var(--pink); box-shadow: 0 0 8px var(--pink); }
+    .stat-val {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 26px; font-weight: 700;
+      line-height: 1.1; margin-bottom: 4px;
+    }
+    .stat-card:nth-child(1) .stat-val { color: var(--violet-l); }
+    .stat-card:nth-child(2) .stat-val { color: var(--gold-l); }
+    .stat-card:nth-child(3) .stat-val { color: #4ADE80; }
+    .stat-card:nth-child(4) .stat-val { color: var(--pink-l); }
+    .stat-label {
+      font-size: 11px; font-weight: 600; color: var(--text-muted);
+      text-transform: uppercase; letter-spacing: 0.5px;
+      line-height: 1.4;
+    }
+
+    /* ─── ABOUT ─────────────────────────────────────────────────── */
+    #about {
+      background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-mid) 50%, var(--bg-deep) 100%);
+    }
+    .about-card {
+      background: var(--card);
+      border: 1px solid rgba(124,58,237,0.2);
+      border-radius: 24px;
+      padding: 32px 24px;
+      position: relative; overflow: hidden;
+    }
+    .about-card::before {
+      content: ''; position: absolute; top: -60px; right: -60px;
+      width: 200px; height: 200px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(124,58,237,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .about-avatar {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--violet), var(--pink));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px; font-weight: 800; color: var(--white);
+      margin-bottom: 20px;
+      box-shadow: 0 0 24px rgba(124,58,237,0.4);
+    }
+    .about-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 28px; font-weight: 700; margin-bottom: 6px;
+    }
+    .about-role {
+      font-size: 13px; font-weight: 600; color: var(--violet-l);
+      letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px;
+    }
+    .about-text {
+      font-size: 15px; color: var(--text-muted); line-height: 1.7;
+    }
+    .about-badges {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px;
+    }
+    .badge {
+      padding: 6px 14px; border-radius: 100px;
+      font-size: 12px; font-weight: 600;
+      background: rgba(124,58,237,0.15);
+      border: 1px solid rgba(124,58,237,0.3);
+      color: var(--violet-l);
+    }
+
+    /* ─── CASINOS ───────────────────────────────────────────────── */
+    #casinos {
+      background: var(--bg-deep);
+    }
+    .casinos-list { display: flex; flex-direction: column; gap: 16px; margin-top: 32px; }
+    .casino-card {
+      background: var(--card);
+      border: 1px solid rgba(124,58,237,0.2);
+      border-radius: 24px;
+      overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+      position: relative;
+    }
+    .casino-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(124,58,237,0.2);
+      border-color: rgba(124,58,237,0.5);
+    }
+    .casino-header {
+      padding: 24px 24px 0;
+      display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;
+    }
+    .casino-badge-num {
+      width: 36px; height: 36px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px; font-weight: 700;
+      flex-shrink: 0;
+    }
+    .casino-1 .casino-badge-num { background: linear-gradient(135deg, #EAB308, #F97316); color: #08071A; }
+    .casino-2 .casino-badge-num { background: linear-gradient(135deg, #3B82F6, #7C3AED); color: #fff; }
+    .casino-3 .casino-badge-num { background: linear-gradient(135deg, #EC4899, #7C3AED); color: #fff; }
+    .casino-name-wrap { flex: 1; }
+    .casino-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 22px; font-weight: 700; margin-bottom: 4px;
+    }
+    .casino-tag {
+      font-size: 11px; font-weight: 600; letter-spacing: 1px;
+      color: var(--text-muted); text-transform: uppercase;
+    }
+    .casino-icon-wrap {
+      width: 52px; height: 52px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; flex-shrink: 0;
+    }
+    .casino-1 .casino-icon-wrap { background: linear-gradient(135deg, rgba(234,179,8,0.2), rgba(249,115,22,0.2)); }
+    .casino-2 .casino-icon-wrap { background: linear-gradient(135deg, rgba(59,130,246,0.2), rgba(124,58,237,0.2)); }
+    .casino-3 .casino-icon-wrap { background: linear-gradient(135deg, rgba(236,72,153,0.2), rgba(124,58,237,0.2)); }
+    .casino-body { padding: 16px 24px 24px; }
+    .casino-desc {
+      font-size: 14px; color: var(--text-muted); line-height: 1.65; margin-bottom: 20px;
+    }
+    .casino-cta {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      width: 100%; padding: 16px 24px; border-radius: 100px;
+      font-size: 14px; font-weight: 700; letter-spacing: 0.5px;
+      transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+    }
+    .casino-cta:hover { transform: scale(1.02); opacity: 0.92; }
+    .casino-cta:active { transform: scale(0.97); }
+    .casino-1 .casino-cta {
+      background: linear-gradient(135deg, #EAB308, #F97316);
+      color: #08071A;
+      box-shadow: 0 8px 24px rgba(234,179,8,0.35);
+    }
+    .casino-2 .casino-cta {
+      background: linear-gradient(135deg, #3B82F6, #7C3AED);
+      color: var(--white);
+      box-shadow: 0 8px 24px rgba(59,130,246,0.35);
+    }
+    .casino-3 .casino-cta {
+      background: linear-gradient(135deg, #EC4899, #7C3AED);
+      color: var(--white);
+      box-shadow: 0 8px 24px rgba(236,72,153,0.35);
+    }
+    .casino-legal {
+      font-size: 10px; color: rgba(255,255,255,0.3);
+      text-align: center; margin-top: 10px; letter-spacing: 0.3px;
+    }
+    .casino-card .top-bar { height: 3px; width: 100%; }
+    .casino-1 .top-bar { background: linear-gradient(90deg, #EAB308, #F97316); }
+    .casino-2 .top-bar { background: linear-gradient(90deg, #3B82F6, #7C3AED); }
+    .casino-3 .top-bar { background: linear-gradient(90deg, #EC4899, #7C3AED); }
+
+    /* ─── OFFERS ────────────────────────────────────────────────── */
+    #offers {
+      background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-mid) 100%);
+    }
+    .offers-grid { display: flex; flex-direction: column; gap: 14px; margin-top: 32px; }
+    .offer-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 20px;
+      display: flex; gap: 16px; align-items: center;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .offer-card:hover { background: rgba(124,58,237,0.06); border-color: rgba(124,58,237,0.3); }
+    .offer-icon {
+      width: 52px; height: 52px; border-radius: 14px;
+      flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+    }
+    .offer-1 .offer-icon { background: linear-gradient(135deg, rgba(234,179,8,0.2), rgba(249,115,22,0.2)); }
+    .offer-2 .offer-icon { background: linear-gradient(135deg, rgba(59,130,246,0.2), rgba(124,58,237,0.2)); }
+    .offer-3 .offer-icon { background: linear-gradient(135deg, rgba(236,72,153,0.2), rgba(124,58,237,0.2)); }
+    .offer-info { flex: 1; min-width: 0; }
+    .offer-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16px; font-weight: 700; margin-bottom: 4px;
+    }
+    .offer-bonus { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; }
+    .offer-link {
+      font-size: 12px; font-weight: 700;
+      padding: 6px 14px; border-radius: 100px;
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .offer-1 .offer-link { background: rgba(234,179,8,0.15); color: var(--gold-l); }
+    .offer-2 .offer-link { background: rgba(59,130,246,0.15); color: var(--blue-e); }
+    .offer-3 .offer-link { background: rgba(236,72,153,0.15); color: var(--pink-l); }
+
+    /* ─── HOW IT WORKS ──────────────────────────────────────────── */
+    #how {
+      background: var(--bg-deep);
+    }
+    .how-label {
+      display: inline-flex; align-items: center; gap: 10px;
+      border: 1px solid rgba(234,179,8,0.4);
+      background: rgba(234,179,8,0.08);
+      color: var(--gold);
+      padding: 8px 18px; border-radius: 100px;
+      font-size: 12px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; margin-bottom: 24px;
+    }
+    .how-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); animation: pulse 2s infinite; }
+    .how-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 30px; font-weight: 700; line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    .how-title .accent { color: var(--gold-l); }
+    .how-title .accent2 {
+      background: linear-gradient(135deg, var(--violet-l), var(--pink));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .steps-list { display: flex; flex-direction: column; gap: 14px; margin-top: 36px; }
+    .step-card {
+      background: var(--card);
+      border: 1px solid rgba(124,58,237,0.15);
+      border-radius: 22px;
+      padding: 28px 24px;
+      position: relative; overflow: hidden;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .step-card:hover { transform: translateY(-2px); border-color: rgba(124,58,237,0.4); }
+    .step-card::after {
+      content: ''; position: absolute; bottom: 0; right: 0;
+      width: 120px; height: 120px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(124,58,237,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .step-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 52px; font-weight: 700;
+      line-height: 1; margin-bottom: 18px;
+      background: linear-gradient(135deg, #EAB308, #F97316);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .step-icon-circle {
+      width: 44px; height: 44px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 14px; font-size: 18px;
+    }
+    .step-1 .step-icon-circle { background: rgba(124,58,237,0.2); border: 1px solid rgba(124,58,237,0.3); }
+    .step-2 .step-icon-circle { background: rgba(59,130,246,0.2); border: 1px solid rgba(59,130,246,0.3); }
+    .step-3 .step-icon-circle { background: rgba(234,179,8,0.2); border: 1px solid rgba(234,179,8,0.3); }
+    .step-4 .step-icon-circle { background: rgba(34,197,94,0.2); border: 1px solid rgba(34,197,94,0.3); }
+    .step-card:nth-child(1) { border-top: 2px solid rgba(124,58,237,0.5); }
+    .step-card:nth-child(2) { border-top: 2px solid rgba(59,130,246,0.5); }
+    .step-card:nth-child(3) { border-top: 2px solid rgba(234,179,8,0.5); }
+    .step-card:nth-child(4) { border-top: 2px solid rgba(34,197,94,0.5); }
+    .step-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 19px; font-weight: 700; margin-bottom: 8px;
+    }
+    .step-desc { font-size: 14px; color: var(--text-muted); line-height: 1.65; }
+    .how-cta {
+      margin-top: 32px;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      width: 100%; padding: 18px 28px; border-radius: 100px;
+      background: linear-gradient(135deg, #5B21B6, #7C3AED, #EC4899);
+      color: var(--white); font-size: 15px; font-weight: 700;
+      box-shadow: 0 8px 32px rgba(124,58,237,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .how-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(124,58,237,0.55); }
+    .how-cta:active { transform: scale(0.97); }
+    .how-note { text-align: center; font-size: 12px; color: var(--text-muted); margin-top: 12px; line-height: 1.6; }
+
+    /* ─── DISCORD ───────────────────────────────────────────────── */
+    #discord {
+      background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-mid) 100%);
+    }
+    .discord-card {
+      background: linear-gradient(135deg, rgba(88,101,242,0.15) 0%, rgba(124,58,237,0.15) 100%);
+      border: 1px solid rgba(88,101,242,0.35);
+      border-radius: 28px;
+      padding: 40px 28px;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .discord-card::before {
+      content: ''; position: absolute; top: -80px; left: 50%;
+      transform: translateX(-50%);
+      width: 300px; height: 300px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(88,101,242,0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .discord-logo {
+      font-size: 56px; margin-bottom: 20px;
+      animation: floatY 3s ease-in-out infinite;
+    }
+    @keyframes floatY { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+    .discord-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 30px; font-weight: 700; margin-bottom: 14px; line-height: 1.2;
+    }
+    .discord-sub {
+      font-size: 15px; color: var(--text-muted); line-height: 1.7;
+      margin-bottom: 32px;
+    }
+    .btn-discord {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      width: 100%; padding: 18px 28px; border-radius: 100px;
+      background: linear-gradient(135deg, #5865F2, #7C3AED);
+      color: var(--white); font-size: 15px; font-weight: 700;
+      box-shadow: 0 8px 32px rgba(88,101,242,0.45);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-discord:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(88,101,242,0.6); }
+    .btn-discord:active { transform: scale(0.97); }
+
+    /* ─── SOCIALS ───────────────────────────────────────────────── */
+    #socials { background: var(--bg-deep); }
+    .socials-grid { display: flex; flex-direction: column; gap: 12px; margin-top: 32px; }
+    .social-btn {
+      display: flex; align-items: center; gap: 14px;
+      padding: 18px 20px; border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.03);
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    }
+    .social-btn:hover { transform: translateX(4px); }
+    .social-btn.instagram:hover { border-color: rgba(236,72,153,0.5); background: rgba(236,72,153,0.06); }
+    .social-btn.tiktok:hover { border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.05); }
+    .social-btn.youtube:hover { border-color: rgba(239,68,68,0.5); background: rgba(239,68,68,0.06); }
+    .social-btn.discord:hover { border-color: rgba(88,101,242,0.5); background: rgba(88,101,242,0.06); }
+    .social-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; flex-shrink: 0;
+    }
+    .instagram .social-icon { background: linear-gradient(135deg, #833AB4, #FC913A); }
+    .tiktok .social-icon { background: linear-gradient(135deg, #010101, #69C9D0); }
+    .youtube .social-icon { background: #FF0000; }
+    .discord .social-icon { background: #5865F2; }
+    .social-info { flex: 1; }
+    .social-name { font-size: 15px; font-weight: 700; margin-bottom: 2px; }
+    .social-handle { font-size: 13px; color: var(--text-muted); }
+    .social-arrow { font-size: 18px; color: var(--text-muted); }
+    .social-placeholder { opacity: 0.4; pointer-events: none; }
+
+    /* ─── FOOTER ────────────────────────────────────────────────── */
+    footer {
+      background: var(--bg-mid);
+      border-top: 1px solid rgba(124,58,237,0.15);
+      padding: 48px 20px 40px;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 22px; font-weight: 700;
+      background: linear-gradient(135deg, #A855F7, #EC4899);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      margin-bottom: 4px;
+    }
+    .footer-by { font-size: 13px; color: var(--text-muted); margin-bottom: 24px; }
+    .footer-socials { display: flex; justify-content: center; gap: 14px; margin-bottom: 28px; }
+    .footer-social {
+      width: 40px; height: 40px; border-radius: 12px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; transition: background 0.2s, transform 0.2s;
+    }
+    .footer-social:hover { background: rgba(255,255,255,0.12); transform: translateY(-2px); }
+    .footer-legal {
+      font-size: 12px; color: rgba(255,255,255,0.25);
+      line-height: 1.8; max-width: 360px; margin: 0 auto;
+    }
+    .footer-18 {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 32px; height: 32px; border-radius: 8px;
+      background: rgba(239,68,68,0.2); border: 1px solid rgba(239,68,68,0.4);
+      color: #FCA5A5; font-size: 11px; font-weight: 800;
+      margin: 0 auto 16px; letter-spacing: 0px;
+    }
+
+    /* ─── ANIMATIONS ────────────────────────────────────────────── */
+    @keyframes pulse {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(0.85); }
+    }
+    .fade-up {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .fade-up-d1 { transition-delay: 0.1s; }
+    .fade-up-d2 { transition-delay: 0.2s; }
+    .fade-up-d3 { transition-delay: 0.3s; }
+    .fade-up-d4 { transition-delay: 0.4s; }
+
+    /* ─── GLOW ORBS ─────────────────────────────────────────────── */
+    .glow-orb {
+      position: absolute; border-radius: 50%; filter: blur(60px);
+      pointer-events: none; opacity: 0.25;
+    }
+
+    /* ─── RESPONSIVE DESKTOP ────────────────────────────────────── */
+    @media (min-width: 640px) {
+      .container { max-width: 580px; }
+      .hero-title { font-size: 52px; }
+      .hero-inner { padding: 130px 40px 80px; }
+      .stats-grid { grid-template-columns: repeat(4, 1fr); }
+      .hero-ctas { flex-direction: row; justify-content: center; }
+    }
+    @media (min-width: 768px) {
+      .ham { display: none !important; }
+      .nav-desktop { display: flex !important; }
+      .container { max-width: 700px; }
+      section { padding: 100px 40px; }
+    }
+    @media (max-width: 767px) {
+      .nav-desktop { display: none; }
+      .ham { display: flex; }
+    }
+
+    /* ─── UTILITY ───────────────────────────────────────────────── */
+    .mt-8  { margin-top: 8px; }
+    .mt-16 { margin-top: 16px; }
+    .mt-24 { margin-top: 24px; }
+    .text-center { text-align: center; }
+    .divider {
+      height: 1px; width: 100%; max-width: 300px; margin: 0 auto;
+      background: linear-gradient(90deg, transparent, rgba(124,58,237,0.4), transparent);
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── MOBILE NAV ───────────────────────────────────────────────── -->
+<nav class="mobile-nav" id="mobileNav">
+  <a href="#hero" onclick="closeMobileNav()">Accueil</a>
+  <a href="#casinos" onclick="closeMobileNav()">Casinos</a>
+  <a href="#offers" onclick="closeMobileNav()">Offres</a>
+  <a href="#discord" onclick="closeMobileNav()">Discord</a>
+</nav>
+
+<!-- ─── HEADER ──────────────────────────────────────────────────── -->
+<header>
+  <a href="#hero" class="logo">KIRI BONUS</a>
+  <nav class="nav-desktop">
+    <a href="#hero">Accueil</a>
+    <a href="#casinos">Casinos</a>
+    <a href="#offers">Offres</a>
+    <a href="#discord">Discord</a>
+  </nav>
+  <button class="ham" id="hamBtn" onclick="toggleMobileNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- ─── HERO ────────────────────────────────────────────────────── -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-stars"></div>
+  <div class="hero-inner">
+    <!-- Avatar placeholder -->
+    <div class="hero-avatar">K</div>
+    <div class="hero-brand">✦ Kiri Bonus ✦</div>
+    <h1 class="hero-title">
+      Bienvenue chez<br /><span class="grad">KIRI BONUS</span>
+    </h1>
+    <p class="hero-sub">Les plateformes, offres et contenus que je partage avec ma communauté.</p>
+    <div class="hero-ctas">
+      <a href="https://discord.gg/Y5TGhVBzjn" target="_blank" rel="noopener" class="btn-primary">
+        <svg width="18" height="14" viewBox="0 0 18 14" fill="currentColor"><path d="M15.25 1.17A14.86 14.86 0 0 0 11.52 0c-.17.3-.37.71-.5 1.03a13.76 13.76 0 0 0-4.04 0A10.86 10.86 0 0 0 6.48 0 14.9 14.9 0 0 0 2.74 1.18C.4 4.66-.24 8.06.08 11.4a15.07 15.07 0 0 0 4.58 2.29c.37-.5.7-1.03.99-1.59a9.7 9.7 0 0 1-1.55-.73c.13-.09.26-.19.38-.29 3 1.38 6.25 1.38 9.21 0 .12.1.25.2.38.29-.5.28-1.02.52-1.55.73.29.56.62 1.1.99 1.59a15.02 15.02 0 0 0 4.59-2.3c.37-3.87-.63-7.23-2.65-10.22ZM6.01 9.34c-.87 0-1.59-.8-1.59-1.77s.7-1.77 1.59-1.77c.88 0 1.6.8 1.59 1.77 0 .97-.71 1.77-1.59 1.77Zm5.98 0c-.88 0-1.59-.8-1.59-1.77s.7-1.77 1.59-1.77c.88 0 1.6.8 1.59 1.77 0 .97-.71 1.77-1.59 1.77Z"/></svg>
+        REJOINDRE LA COMMUNAUTÉ
+      </a>
+      <a href="#casinos" class="btn-secondary">
+        🎰 DÉCOUVRIR LES OFFRES
+      </a>
+    </div>
+    <div class="hero-scroll">
+      <span>SCROLL</span>
+      <div class="scroll-arrow">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" opacity="0.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── STATS ────────────────────────────────────────────────────── -->
+<section id="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card fade-up">
+        <div class="stat-dot"></div>
+        <div class="stat-val">[MEMBRES]</div>
+        <div class="stat-label">Membres<br/>Discord</div>
+      </div>
+      <div class="stat-card fade-up fade-up-d1">
+        <div class="stat-dot"></div>
+        <div class="stat-val">[INSTA]</div>
+        <div class="stat-label">Abonnés<br/>Instagram</div>
+      </div>
+      <div class="stat-card fade-up fade-up-d2">
+        <div class="stat-dot"></div>
+        <div class="stat-val">[TIKTOK]</div>
+        <div class="stat-label">Abonnés<br/>TikTok</div>
+      </div>
+      <div class="stat-card fade-up fade-up-d3">
+        <div class="stat-dot"></div>
+        <div class="stat-val">[YOUTUBE]</div>
+        <div class="stat-label">Abonnés<br/>YouTube</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ABOUT ────────────────────────────────────────────────────── -->
+<section id="about">
+  <div class="container">
+    <div class="section-label"><span class="dot"></span>QUI EST KIRI ?</div>
+    <div class="about-card fade-up">
+      <div class="about-avatar">K</div>
+      <div class="about-name">Kiri</div>
+      <div class="about-role">Créateur · Kiri Bonus</div>
+      <p class="about-text">
+        Je suis Kiri, créateur de contenu et fondateur de Kiri Bonus.<br/><br/>
+        Je partage avec ma communauté les plateformes que j'utilise, leurs offres disponibles et différents contenus autour du casino en ligne. Tout est centralisé ici et sur mon Discord.
+      </p>
+      <div class="about-badges">
+        <span class="badge">🎰 Casino</span>
+        <span class="badge">📱 TikTok</span>
+        <span class="badge">📸 Instagram</span>
+        <span class="badge">🎥 YouTube</span>
+        <span class="badge">💬 Discord</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CASINOS ───────────────────────────────────────────────────── -->
+<section id="casinos">
+  <div class="container">
+    <div class="section-label"><span class="dot"></span>MES CASINOS</div>
+    <h2 class="section-title">Les plateformes <span style="background:linear-gradient(135deg,#A855F7,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">que j'utilise</span></h2>
+    <p class="section-sub">Trois casinos sélectionnés par Kiri. Utilise mon lien pour accéder aux offres disponibles.</p>
+    <div class="casinos-list">
+
+      <!-- FAST SLOT -->
+      <div class="casino-card casino-1 fade-up">
+        <div class="top-bar"></div>
+        <div class="casino-header">
+          <div class="casino-name-wrap">
+            <div class="casino-badge-num">01</div>
+          </div>
+          <div class="casino-icon-wrap">🎰</div>
+        </div>
+        <div class="casino-body">
+          <div class="casino-name">FAST SLOT</div>
+          <div class="casino-tag">Casino en ligne</div>
+          <p class="casino-desc mt-8">Découvre Fast Slot et l'offre disponible pour la communauté Kiri Bonus. Utilise mon lien pour accéder à la plateforme.</p>
+          <a href="https://record.discasinoaffiliates.com/_xoM1XgGUlgLk9mx2SfmU_WNd7ZgqdRLk/1/" target="_blank" rel="noopener" class="casino-cta">
+            🚀 DÉCOUVRIR FAST SLOT
+          </a>
+          <p class="casino-legal">18+ · Offre soumise aux conditions de la plateforme · Jouez de manière responsable</p>
+        </div>
+      </div>
+
+      <!-- MYSTAKE -->
+      <div class="casino-card casino-2 fade-up fade-up-d1">
+        <div class="top-bar"></div>
+        <div class="casino-header">
+          <div class="casino-name-wrap">
+            <div class="casino-badge-num">02</div>
+          </div>
+          <div class="casino-icon-wrap">⚡</div>
+        </div>
+        <div class="casino-body">
+          <div class="casino-name">MYSTAKE</div>
+          <div class="casino-tag">Casino en ligne</div>
+          <p class="casino-desc mt-8">Découvre MyStake et les offres disponibles pour les nouveaux joueurs. Accès via mon lien exclusif.</p>
+          <a href="https://go.affiliatemystake.com/visit/?bta=3164179&brand=mystake" target="_blank" rel="noopener" class="casino-cta">
+            ⚡ DÉCOUVRIR MYSTAKE
+          </a>
+          <p class="casino-legal">18+ · Offre soumise aux conditions de la plateforme · Jouez de manière responsable</p>
+        </div>
+      </div>
+
+      <!-- CELSIUS -->
+      <div class="casino-card casino-3 fade-up fade-up-d2">
+        <div class="top-bar"></div>
+        <div class="casino-header">
+          <div class="casino-name-wrap">
+            <div class="casino-badge-num">03</div>
+          </div>
+          <div class="casino-icon-wrap">🌡️</div>
+        </div>
+        <div class="casino-body">
+          <div class="casino-name">CELSIUS</div>
+          <div class="casino-tag">Casino en ligne</div>
+          <p class="casino-desc mt-8">Découvre Celsius et les offres disponibles pour les nouveaux joueurs. Rejoins via mon lien.</p>
+          <a href="https://celsius.games/lRiFEQwgYE" target="_blank" rel="noopener" class="casino-cta">
+            🌡️ DÉCOUVRIR CELSIUS
+          </a>
+          <p class="casino-legal">18+ · Offre soumise aux conditions de la plateforme · Jouez de manière responsable</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── OFFERS ────────────────────────────────────────────────────── -->
+<section id="offers">
+  <div class="container">
+    <div class="section-label"><span class="dot"></span>LES OFFRES DU MOMENT</div>
+    <h2 class="section-title">Offres <span style="background:linear-gradient(135deg,#EAB308,#F97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">disponibles</span></h2>
+    <p class="section-sub">Les offres de bienvenue disponibles via mes liens. Soumises aux conditions de chaque plateforme.</p>
+    <div class="offers-grid">
+      <div class="offer-card offer-1 fade-up">
+        <div class="offer-icon">🎰</div>
+        <div class="offer-info">
+          <div class="offer-name">Fast Slot</div>
+          <div class="offer-bonus">Offre disponible selon les conditions de la plateforme</div>
+          <a href="https://record.discasinoaffiliates.com/_xoM1XgGUlgLk9mx2SfmU_WNd7ZgqdRLk/1/" target="_blank" rel="noopener" class="offer-link">Voir l'offre →</a>
+        </div>
+      </div>
+      <div class="offer-card offer-2 fade-up fade-up-d1">
+        <div class="offer-icon">⚡</div>
+        <div class="offer-info">
+          <div class="offer-name">MyStake</div>
+          <div class="offer-bonus">Offre disponible selon les conditions de la plateforme</div>
+          <a href="https://go.affiliatemystake.com/visit/?bta=3164179&brand=mystake" target="_blank" rel="noopener" class="offer-link">Voir l'offre →</a>
+        </div>
+      </div>
+      <div class="offer-card offer-3 fade-up fade-up-d2">
+        <div class="offer-icon">🌡️</div>
+        <div class="offer-info">
+          <div class="offer-name">Celsius</div>
+          <div class="offer-bonus">Offre disponible selon les conditions de la plateforme</div>
+          <a href="https://celsius.games/lRiFEQwgYE" target="_blank" rel="noopener" class="offer-link">Voir l'offre →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── HOW IT WORKS ──────────────────────────────────────────────── -->
+<section id="how">
+  <div class="container">
+    <div class="how-label"><span class="how-dot"></span>TUTORIEL · 4 ÉTAPES</div>
+    <h2 class="how-title">Comment ça <span class="accent2">marche</span> ?</h2>
+    <p class="section-sub">Un parcours simple et transparent pour accéder aux plateformes.</p>
+    <div class="steps-list">
+      <div class="step-card step-1 fade-up">
+        <div class="step-num">01</div>
+        <div class="step-icon-circle">🔍</div>
+        <div class="step-title">TU DÉCOUVRES</div>
+        <p class="step-desc">Découvre les différents casinos disponibles sur Kiri Bonus et leurs offres actuelles.</p>
+      </div>
+      <div class="step-card step-2 fade-up fade-up-d1">
+        <div class="step-num">02</div>
+        <div class="step-icon-circle">🎯</div>
+        <div class="step-title">TU CHOISIS</div>
+        <p class="step-desc">Choisis la plateforme qui t'intéresse parmi les trois casinos sélectionnés par Kiri.</p>
+      </div>
+      <div class="step-card step-3 fade-up fade-up-d2">
+        <div class="step-num">03</div>
+        <div class="step-icon-circle">✍️</div>
+        <div class="step-title">TU T'INSCRIS</div>
+        <p class="step-desc">Utilise mon lien pour accéder à la plateforme. Si tu remplis les conditions, l'offre peut s'appliquer.</p>
+      </div>
+      <div class="step-card step-4 fade-up fade-up-d3">
+        <div class="step-num">04</div>
+        <div class="step-icon-circle">🎮</div>
+        <div class="step-title">TU PROFITES</div>
+        <p class="step-desc">Si tu remplis les conditions de l'offre, celle-ci peut être appliquée conformément aux conditions de la plateforme.</p>
+      </div>
+    </div>
+    <a href="https://discord.gg/Y5TGhVBzjn" target="_blank" rel="noopener" class="how-cta">
+      <svg width="18" height="14" viewBox="0 0 18 14" fill="currentColor"><path d="M15.25 1.17A14.86 14.86 0 0 0 11.52 0c-.17.3-.37.71-.5 1.03a13.76 13.76 0 0 0-4.04 0A10.86 10.86 0 0 0 6.48 0 14.9 14.9 0 0 0 2.74 1.18C.4 4.66-.24 8.06.08 11.4a15.07 15.07 0 0 0 4.58 2.29c.37-.5.7-1.03.99-1.59a9.7 9.7 0 0 1-1.55-.73c.13-.09.26-.19.38-.29 3 1.38 6.25 1.38 9.21 0 .12.1.25.2.38.29-.5.28-1.02.52-1.55.73.29.56.62 1.1.99 1.59a15.02 15.02 0 0 0 4.59-2.3c.37-3.87-.63-7.23-2.65-10.22ZM6.01 9.34c-.87 0-1.59-.8-1.59-1.77s.7-1.77 1.59-1.77c.88 0 1.6.8 1.59 1.77 0 .97-.71 1.77-1.59 1.77Zm5.98 0c-.88 0-1.59-.8-1.59-1.77s.7-1.77 1.59-1.77c.88 0 1.6.8 1.59 1.77 0 .97-.71 1.77-1.59 1.77Z"/></svg>
+      REJOINDRE LE DISCORD
+    </a>
+    <p class="how-note">Gratuit · Rejoins la communauté Kiri Bonus</p>
+  </div>
+</section>
+
+<!-- ─── DISCORD ───────────────────────────────────────────────────── -->
+<section id="discord">
+  <div class="container">
+    <div class="discord-card fade-up">
+      <div class="discord-logo">💬</div>
+      <h2 class="discord-title">Rejoins<br/><span style="background:linear-gradient(135deg,#5865F2,#A855F7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">KIRI BONUS</span></h2>
+      <p class="discord-sub">Retrouve toutes les offres, les liens, les nouveautés et les informations directement dans ma communauté Discord. C'est gratuit.</p>
+      <a href="https://discord.gg/Y5TGhVBzjn" target="_blank" rel="noopener" class="btn-discord">
+        <svg width="18" height="14" viewBox="0 0 18 14" fill="currentColor"><path d="M15.25 1.17A14.86 14.86 0 0 0 11.52 0c-.17.3-.37.71-.5 1.03a13.76 13.76 0 0 0-4.04 0A10.86 10.86 0 0 0 6.48 0 14.9 14.9 0 0 0 2.74 1.18C.4 4.66-.24 8.06.08 11.4a15.07 15.07 0 0 0 4.58 2.29c.37-.5.7-1.03.99-1.59a9.7 9.7 0 0 1-1.55-.73c.13-.09.26-.19.38-.29 3 1.38 6.25 1.38 9.21 0 .12.1.25.2.38.29-.5.28-1.02.52-1.55.73.29.56.62 1.1.99 1.59a15.02 15.02 0 0 0 4.59-2.3c.37-3.87-.63-7.23-2.65-10.22ZM6.01 9.34c-.87 0-1.59-.8-1.59-1.77s.7-1.77 1.59-1.77c.88 0 1.6.8 1.59 1.77 0 .97-.71 1.77-1.59 1.77Zm5.98 0c-.88 0-1.59-.8-1.59-1.77s.7-1.77 1.59-1.77c.88 0 1.6.8 1.59 1.77 0 .97-.71 1.77-1.59 1.77Z"/></svg>
+        REJOINDRE LE DISCORD
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SOCIALS ───────────────────────────────────────────────────── -->
+<section id="socials">
+  <div class="container">
+    <div class="section-label"><span class="dot"></span>RETROUVE KIRI</div>
+    <h2 class="section-title">Sur les <span style="background:linear-gradient(135deg,#EC4899,#A855F7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">réseaux</span></h2>
+    <div class="socials-grid">
+      <a href="https://www.instagram.com/kiri_bonus?igsh=N3pnYzc1MTd6YTZy&utm_source=qr" target="_blank" rel="noopener" class="social-btn instagram fade-up">
+        <div class="social-icon">📸</div>
+        <div class="social-info">
+          <div class="social-name">Instagram</div>
+          <div class="social-handle">@kiri_bonus</div>
+        </div>
+        <span class="social-arrow">→</span>
+      </a>
+      <a href="https://youtube.com/@kirigambling?si=FH8Q-zsm7lJp3bug" target="_blank" rel="noopener" class="social-btn youtube fade-up fade-up-d1">
+        <div class="social-icon">▶️</div>
+        <div class="social-info">
+          <div class="social-name">YouTube</div>
+          <div class="social-handle">@kirigambling</div>
+        </div>
+        <span class="social-arrow">→</span>
+      </a>
+      <a href="https://discord.gg/Y5TGhVBzjn" target="_blank" rel="noopener" class="social-btn discord fade-up fade-up-d2">
+        <div class="social-icon">💬</div>
+        <div class="social-info">
+          <div class="social-name">Discord</div>
+          <div class="social-handle">Kiri Bonus Community</div>
+        </div>
+        <span class="social-arrow">→</span>
+      </a>
+      <div class="social-btn tiktok social-placeholder fade-up fade-up-d3" title="Lien TikTok bientôt disponible">
+        <div class="social-icon">🎵</div>
+        <div class="social-info">
+          <div class="social-name">TikTok</div>
+          <div class="social-handle">Bientôt disponible</div>
+        </div>
+        <span class="social-arrow">—</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ───────────────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="footer-18">18+</div>
+    <div class="footer-logo">KIRI BONUS</div>
+    <div class="footer-by">Créé par Kiri</div>
+    <div class="footer-socials">
+      <a href="https://www.instagram.com/kiri_bonus?igsh=N3pnYzc1MTd6YTZy&utm_source=qr" target="_blank" rel="noopener" class="footer-social" title="Instagram">📸</a>
+      <a href="https://youtube.com/@kirigambling?si=FH8Q-zsm7lJp3bug" target="_blank" rel="noopener" class="footer-social" title="YouTube">▶️</a>
+      <a href="https://discord.gg/Y5TGhVBzjn" target="_blank" rel="noopener" class="footer-social" title="Discord">💬</a>
+    </div>
+    <div class="footer-legal">
+      18+ uniquement · Jouez de manière responsable.<br/>
+      Les offres sont soumises aux conditions des plateformes concernées.<br/>
+      Les jeux d'argent comportent des risques de perte financière.<br/>
+      Aucun gain n'est garanti.
+    </div>
+  </div>
+</footer>
+
+<!-- ─── SCRIPTS ──────────────────────────────────────────────────── -->
+<script>
+  /* ── Scroll animations ── */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  /* ── Mobile nav ── */
+  let navOpen = false;
+  function toggleMobileNav() {
+    navOpen = !navOpen;
+    document.getElementById('mobileNav').classList.toggle('open', navOpen);
+    document.body.style.overflow = navOpen ? 'hidden' : '';
+  }
+  function closeMobileNav() {
+    navOpen = false;
+    document.getElementById('mobileNav').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  /* ── Smooth scroll for anchors ── */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  /* ── Header backdrop on scroll ── */
+  const header = document.querySelector('header');
+  window.addEventListener('scroll', () => {
+    header.style.background = window.scrollY > 20
+      ? 'rgba(8,7,26,0.95)'
+      : 'rgba(8,7,26,0.85)';
+  }, { passive: true });
+</script>
+</body>
+</html>
