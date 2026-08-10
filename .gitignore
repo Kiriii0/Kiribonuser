@@ -1,0 +1,7 @@
+cd kiri-bonus
+git init
+git add .
+git commit -m "Site Kiri Bonus"
+git branch -M main
+git remote add origin https://github.com/TON-USER/kiri-bonus.git
+git push -u origin main
