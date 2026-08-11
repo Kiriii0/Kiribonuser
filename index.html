@@ -305,86 +305,162 @@
     #casinos {
       background: var(--bg-deep);
     }
-    .casinos-list { display: flex; flex-direction: column; gap: 16px; margin-top: 32px; }
+    .casinos-list { display: flex; flex-direction: column; gap: 18px; margin-top: 32px; }
+
+    /* Card shell — same skeleton for all 3, only colors change per brand */
     .casino-card {
       background: var(--card);
-      border: 1px solid rgba(124,58,237,0.2);
       border-radius: 24px;
       overflow: hidden;
-      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
       position: relative;
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+      border: 1px solid var(--brand-border, rgba(124,58,237,0.25));
+      box-shadow: 0 0 0 1px var(--brand-glow-0, transparent) inset, 0 20px 50px -20px var(--brand-glow-1, transparent);
     }
     .casino-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 20px 60px rgba(124,58,237,0.2);
-      border-color: rgba(124,58,237,0.5);
+      box-shadow: 0 0 0 1px var(--brand-glow-0, transparent) inset, 0 24px 60px -14px var(--brand-glow-2, rgba(124,58,237,0.35));
+      border-color: var(--brand-border-hover, rgba(124,58,237,0.55));
     }
-    .casino-header {
-      padding: 24px 24px 0;
-      display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;
+    .casino-card .top-bar { height: 3px; width: 100%; background: var(--brand-grad); }
+
+    .casino-inner {
+      display: flex; align-items: stretch; gap: 16px;
+      padding: 22px 20px 18px;
     }
+    .casino-left { flex: 1.15; min-width: 0; display: flex; flex-direction: column; }
+
+    .casino-top { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
     .casino-badge-num {
-      width: 36px; height: 36px; border-radius: 10px;
+      width: 32px; height: 32px; border-radius: 9px;
       display: flex; align-items: center; justify-content: center;
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 14px; font-weight: 700;
+      font-size: 13px; font-weight: 700;
       flex-shrink: 0;
+      background: var(--brand-grad);
+      color: var(--brand-badge-text, #fff);
     }
-    .casino-1 .casino-badge-num { background: linear-gradient(135deg, #EAB308, #F97316); color: #08071A; }
-    .casino-2 .casino-badge-num { background: linear-gradient(135deg, #3B82F6, #7C3AED); color: #fff; }
-    .casino-3 .casino-badge-num { background: linear-gradient(135deg, #EC4899, #7C3AED); color: #fff; }
-    .casino-name-wrap { flex: 1; }
-    .casino-name {
+    .casino-wordmark {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 22px; font-weight: 700; margin-bottom: 4px;
+      font-size: 21px; font-weight: 700; letter-spacing: -0.3px;
+      display: flex; align-items: baseline; gap: 2px; min-width: 0;
     }
+    .casino-wordmark img { height: 22px; width: auto; display: none; }
+    .casino-wordmark img.loaded { display: block; }
+
     .casino-tag {
-      font-size: 11px; font-weight: 600; letter-spacing: 1px;
-      color: var(--text-muted); text-transform: uppercase;
+      font-size: 11px; font-weight: 700; letter-spacing: 1.2px;
+      color: var(--brand-accent); text-transform: uppercase;
+      margin-bottom: 10px;
     }
-    .casino-icon-wrap {
-      width: 52px; height: 52px; border-radius: 14px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 22px; flex-shrink: 0;
+    .casino-offer {
+      font-size: 14px; font-weight: 600; color: var(--white);
+      line-height: 1.5; margin-bottom: auto;
     }
-    .casino-1 .casino-icon-wrap { background: linear-gradient(135deg, rgba(234,179,8,0.2), rgba(249,115,22,0.2)); }
-    .casino-2 .casino-icon-wrap { background: linear-gradient(135deg, rgba(59,130,246,0.2), rgba(124,58,237,0.2)); }
-    .casino-3 .casino-icon-wrap { background: linear-gradient(135deg, rgba(236,72,153,0.2), rgba(124,58,237,0.2)); }
-    .casino-body { padding: 16px 24px 24px; }
-    .casino-desc {
-      font-size: 14px; color: var(--text-muted); line-height: 1.65; margin-bottom: 20px;
+    .casino-offer .bonus-num {
+      display: block;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 26px; font-weight: 700; line-height: 1.15;
+      background: var(--brand-grad);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      margin: 2px 0;
     }
     .casino-cta {
-      display: flex; align-items: center; justify-content: center; gap: 10px;
-      width: 100%; padding: 16px 24px; border-radius: 100px;
-      font-size: 14px; font-weight: 700; letter-spacing: 0.5px;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; padding: 14px 16px; border-radius: 100px;
+      font-size: 13px; font-weight: 700; letter-spacing: 0.3px;
+      margin-top: 16px;
+      background: var(--brand-grad);
+      color: var(--brand-btn-text, #fff);
+      box-shadow: 0 8px 22px -6px var(--brand-glow-2, rgba(124,58,237,0.5));
       transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
     }
-    .casino-cta:hover { transform: scale(1.02); opacity: 0.92; }
+    .casino-cta:hover { transform: scale(1.02); opacity: 0.94; }
     .casino-cta:active { transform: scale(0.97); }
-    .casino-1 .casino-cta {
-      background: linear-gradient(135deg, #EAB308, #F97316);
-      color: #08071A;
-      box-shadow: 0 8px 24px rgba(234,179,8,0.35);
+
+    .casino-visual {
+      flex: 1; position: relative; border-radius: 16px; overflow: hidden;
+      min-height: 100%;
+      background: #000;
     }
-    .casino-2 .casino-cta {
-      background: linear-gradient(135deg, #3B82F6, #7C3AED);
-      color: var(--white);
-      box-shadow: 0 8px 24px rgba(59,130,246,0.35);
+    .casino-visual img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; object-fit: cover;
     }
-    .casino-3 .casino-cta {
-      background: linear-gradient(135deg, #EC4899, #7C3AED);
-      color: var(--white);
-      box-shadow: 0 8px 24px rgba(236,72,153,0.35);
+    .casino-visual::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(90deg, var(--card) -5%, transparent 45%);
+      pointer-events: none;
     }
+    .casino-visual::before {
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      box-shadow: inset 0 0 0 1px var(--brand-border-hover, rgba(255,255,255,0.12));
+      border-radius: 16px; pointer-events: none;
+    }
+
     .casino-legal {
       font-size: 10px; color: rgba(255,255,255,0.3);
-      text-align: center; margin-top: 10px; letter-spacing: 0.3px;
+      text-align: center; padding: 0 20px 18px; letter-spacing: 0.3px;
     }
-    .casino-card .top-bar { height: 3px; width: 100%; }
-    .casino-1 .top-bar { background: linear-gradient(90deg, #EAB308, #F97316); }
-    .casino-2 .top-bar { background: linear-gradient(90deg, #3B82F6, #7C3AED); }
-    .casino-3 .top-bar { background: linear-gradient(90deg, #EC4899, #7C3AED); }
+
+    /* MyStake — violet / rose / noir */
+    .casino-mystake {
+      --brand-grad: linear-gradient(135deg, #A855F7, #EC4899);
+      --brand-accent: #F0ABFC;
+      --brand-border: rgba(217,70,239,0.3);
+      --brand-border-hover: rgba(217,70,239,0.6);
+      --brand-glow-0: rgba(217,70,239,0.12);
+      --brand-glow-1: rgba(168,85,247,0.18);
+      --brand-glow-2: rgba(217,70,239,0.45);
+      --brand-badge-text: #08071A;
+    }
+    .casino-mystake .casino-wordmark { color: #fff; }
+    .casino-mystake .casino-wordmark .wm-accent {
+      background: linear-gradient(135deg, #E879F9, #C084FC);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      font-style: italic; font-weight: 800;
+    }
+
+    /* Fast Slot — jaune / orange / noir */
+    .casino-fastslot {
+      --brand-grad: linear-gradient(135deg, #FDBA0B, #F97316);
+      --brand-accent: #FDBA74;
+      --brand-border: rgba(249,115,22,0.3);
+      --brand-border-hover: rgba(249,115,22,0.6);
+      --brand-glow-0: rgba(249,115,22,0.12);
+      --brand-glow-1: rgba(253,186,11,0.18);
+      --brand-glow-2: rgba(249,115,22,0.45);
+      --brand-badge-text: #08071A;
+      --brand-btn-text: #08071A;
+    }
+    .casino-fastslot .casino-wordmark { color: #fff; font-style: italic; }
+    .casino-fastslot .casino-wordmark .wm-accent {
+      background: linear-gradient(135deg, #FDBA0B, #F97316);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      font-weight: 800;
+    }
+
+    /* Celsius — bleu électrique */
+    .casino-celsius {
+      --brand-grad: linear-gradient(135deg, #3B82F6, #60A5FA);
+      --brand-accent: #93C5FD;
+      --brand-border: rgba(59,130,246,0.3);
+      --brand-border-hover: rgba(59,130,246,0.6);
+      --brand-glow-0: rgba(59,130,246,0.12);
+      --brand-glow-1: rgba(96,165,250,0.18);
+      --brand-glow-2: rgba(59,130,246,0.45);
+      --brand-badge-text: #08071A;
+    }
+    .casino-celsius .casino-wordmark { color: #fff; }
+    .casino-celsius .casino-wordmark .wm-accent { color: #60A5FA; font-size: 12px; align-self: flex-start; }
+
+    @media (max-width: 420px) {
+      .casino-inner { padding: 18px 16px 16px; gap: 12px; }
+      .casino-wordmark { font-size: 17px; }
+      .casino-offer { font-size: 12.5px; }
+      .casino-offer .bonus-num { font-size: 21px; }
+      .casino-cta { font-size: 11.5px; padding: 12px 10px; }
+    }
 
     /* ─── OFFERS ────────────────────────────────────────────────── */
     #offers {
@@ -774,64 +850,79 @@
     <p class="section-sub">Trois casinos sélectionnés par Kiri. Utilise mon lien pour accéder aux offres disponibles.</p>
     <div class="casinos-list">
 
-      <!-- FAST SLOT -->
-      <div class="casino-card casino-1 fade-up">
+      <!-- MYSTAKE -->
+      <div class="casino-card casino-mystake fade-up">
         <div class="top-bar"></div>
-        <div class="casino-header">
-          <div class="casino-name-wrap">
-            <div class="casino-badge-num">01</div>
+        <div class="casino-inner">
+          <div class="casino-left">
+            <div class="casino-top">
+              <div class="casino-badge-num">01</div>
+              <div class="casino-wordmark">
+                <img src="assets/logos/mystake.png" alt="MyStake" onload="this.classList.add('loaded')" onerror="this.remove()" />
+                <span>My<span class="wm-accent">Stake</span></span>
+              </div>
+            </div>
+            <div class="casino-tag">Casino en ligne</div>
+            <p class="casino-offer">Reçois un bonus de<span class="bonus-num">300% jusqu'à 1 500 €</span></p>
+            <a href="https://go.affiliatemystake.com/visit/?bta=3164179&brand=mystake" target="_blank" rel="noopener" class="casino-cta">
+              DÉCOUVRIR MYSTAKE
+            </a>
           </div>
-          <div class="casino-icon-wrap">🎰</div>
+          <div class="casino-visual">
+            <img src="assets/images/mystake-promo.jpg" alt="Offre de bienvenue MyStake" loading="lazy" />
+          </div>
         </div>
-        <div class="casino-body">
-          <div class="casino-name">FAST SLOT</div>
-          <div class="casino-tag">Casino en ligne</div>
-          <p class="casino-desc mt-8">Découvre Fast Slot et l'offre disponible pour la communauté Kiri Bonus. Utilise mon lien pour accéder à la plateforme.</p>
-          <a href="https://record.discasinoaffiliates.com/_xoM1XgGUlgLk9mx2SfmU_WNd7ZgqdRLk/1/" target="_blank" rel="noopener" class="casino-cta">
-            🚀 DÉCOUVRIR FAST SLOT
-          </a>
-          <p class="casino-legal">18+ · Offre soumise aux conditions de la plateforme · Jouez de manière responsable</p>
-        </div>
+        <p class="casino-legal">18+ · Offre soumise aux conditions de la plateforme · Jouez de manière responsable</p>
       </div>
 
-      <!-- MYSTAKE -->
-      <div class="casino-card casino-2 fade-up fade-up-d1">
+      <!-- FAST SLOT -->
+      <div class="casino-card casino-fastslot fade-up fade-up-d1">
         <div class="top-bar"></div>
-        <div class="casino-header">
-          <div class="casino-name-wrap">
-            <div class="casino-badge-num">02</div>
+        <div class="casino-inner">
+          <div class="casino-left">
+            <div class="casino-top">
+              <div class="casino-badge-num">02</div>
+              <div class="casino-wordmark">
+                <img src="assets/logos/fastslot.png" alt="Fast Slot" onload="this.classList.add('loaded')" onerror="this.remove()" />
+                <span><span class="wm-accent">Fast</span>Slot</span>
+              </div>
+            </div>
+            <div class="casino-tag">Casino en ligne</div>
+            <p class="casino-offer">Reçois un bonus de<span class="bonus-num">200% jusqu'à 5 000 €</span>dès le 1er dépôt</p>
+            <a href="https://record.discasinoaffiliates.com/_xoM1XgGUlgLk9mx2SfmU_WNd7ZgqdRLk/1/" target="_blank" rel="noopener" class="casino-cta">
+              DÉCOUVRIR FAST SLOT
+            </a>
           </div>
-          <div class="casino-icon-wrap">⚡</div>
+          <div class="casino-visual">
+            <img src="assets/images/fastslot-promo.jpg" alt="Offre de bienvenue Fast Slot" loading="lazy" />
+          </div>
         </div>
-        <div class="casino-body">
-          <div class="casino-name">MYSTAKE</div>
-          <div class="casino-tag">Casino en ligne</div>
-          <p class="casino-desc mt-8">Découvre MyStake et les offres disponibles pour les nouveaux joueurs. Accès via mon lien exclusif.</p>
-          <a href="https://go.affiliatemystake.com/visit/?bta=3164179&brand=mystake" target="_blank" rel="noopener" class="casino-cta">
-            ⚡ DÉCOUVRIR MYSTAKE
-          </a>
-          <p class="casino-legal">18+ · Offre soumise aux conditions de la plateforme · Jouez de manière responsable</p>
-        </div>
+        <p class="casino-legal">18+ · Offre soumise aux conditions de la plateforme · Jouez de manière responsable</p>
       </div>
 
       <!-- CELSIUS -->
-      <div class="casino-card casino-3 fade-up fade-up-d2">
+      <div class="casino-card casino-celsius fade-up fade-up-d2">
         <div class="top-bar"></div>
-        <div class="casino-header">
-          <div class="casino-name-wrap">
-            <div class="casino-badge-num">03</div>
+        <div class="casino-inner">
+          <div class="casino-left">
+            <div class="casino-top">
+              <div class="casino-badge-num">03</div>
+              <div class="casino-wordmark">
+                <img src="assets/logos/celsius.png" alt="Celsius" onload="this.classList.add('loaded')" onerror="this.remove()" />
+                <span>Celsius<span class="wm-accent">°</span></span>
+              </div>
+            </div>
+            <div class="casino-tag">Casino en ligne</div>
+            <p class="casino-offer">Reçois un bonus de<span class="bonus-num">550%</span>dès le 1er dépôt</p>
+            <a href="https://celsius.games/lRiFEQwgYE" target="_blank" rel="noopener" class="casino-cta">
+              DÉCOUVRIR CELSIUS
+            </a>
           </div>
-          <div class="casino-icon-wrap">🌡️</div>
+          <div class="casino-visual">
+            <img src="assets/images/celsius-promo.jpg" alt="Offre de bienvenue Celsius" loading="lazy" />
+          </div>
         </div>
-        <div class="casino-body">
-          <div class="casino-name">CELSIUS</div>
-          <div class="casino-tag">Casino en ligne</div>
-          <p class="casino-desc mt-8">Découvre Celsius et les offres disponibles pour les nouveaux joueurs. Rejoins via mon lien.</p>
-          <a href="https://celsius.games/lRiFEQwgYE" target="_blank" rel="noopener" class="casino-cta">
-            🌡️ DÉCOUVRIR CELSIUS
-          </a>
-          <p class="casino-legal">18+ · Offre soumise aux conditions de la plateforme · Jouez de manière responsable</p>
-        </div>
+        <p class="casino-legal">18+ · Offre soumise aux conditions de la plateforme · Jouez de manière responsable</p>
       </div>
 
     </div>
