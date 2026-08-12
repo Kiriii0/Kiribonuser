@@ -215,6 +215,7 @@
     /* ─── STATS ─────────────────────────────────────────────────── */
     #stats { padding: 0 20px 80px; }
     .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .stats-grid-3 { grid-template-columns: repeat(3, 1fr); }
     .stat-card {
       background: var(--card);
       border: 1px solid var(--border);
@@ -354,8 +355,9 @@
       margin-bottom: 10px;
     }
     .casino-offer {
-      font-size: 14px; font-weight: 600; color: var(--white);
+      font-size: 13px; font-weight: 700; color: var(--white);
       line-height: 1.5; margin-bottom: auto;
+      text-transform: uppercase; letter-spacing: 0.3px;
     }
     .casino-offer .bonus-num {
       display: block;
@@ -466,38 +468,88 @@
     #offers {
       background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-mid) 100%);
     }
-    .offers-grid { display: flex; flex-direction: column; gap: 14px; margin-top: 32px; }
+    .offers-grid { display: flex; flex-direction: column; gap: 18px; margin-top: 32px; }
+
     .offer-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 20px;
-      padding: 20px;
-      display: flex; gap: 16px; align-items: center;
-      transition: background 0.2s, border-color 0.2s;
+      border-radius: 22px;
+      padding: 22px 20px 18px;
+      position: relative; overflow: hidden;
+      background: var(--card);
+      border: 1px solid var(--brand-border, rgba(124,58,237,0.25));
+      box-shadow: 0 0 0 1px var(--brand-glow-0, transparent) inset;
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
     }
-    .offer-card:hover { background: rgba(124,58,237,0.06); border-color: rgba(124,58,237,0.3); }
-    .offer-icon {
-      width: 52px; height: 52px; border-radius: 14px;
-      flex-shrink: 0; display: flex; align-items: center; justify-content: center;
-      font-size: 20px;
+    .offer-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--brand-border-hover, rgba(124,58,237,0.55));
+      box-shadow: 0 0 0 1px var(--brand-glow-0, transparent) inset, 0 20px 50px -20px var(--brand-glow-1, transparent);
     }
-    .offer-1 .offer-icon { background: linear-gradient(135deg, rgba(234,179,8,0.2), rgba(249,115,22,0.2)); }
-    .offer-2 .offer-icon { background: linear-gradient(135deg, rgba(59,130,246,0.2), rgba(124,58,237,0.2)); }
-    .offer-3 .offer-icon { background: linear-gradient(135deg, rgba(236,72,153,0.2), rgba(124,58,237,0.2)); }
-    .offer-info { flex: 1; min-width: 0; }
-    .offer-name {
+    .offer-card .top-bar { position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--brand-grad); }
+
+    .offer-top { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+    .offer-badge-num {
+      width: 30px; height: 30px; border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 16px; font-weight: 700; margin-bottom: 4px;
+      font-size: 12px; font-weight: 700; flex-shrink: 0;
+      background: var(--brand-grad);
+      color: var(--brand-badge-text, #fff);
     }
-    .offer-bonus { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; }
-    .offer-link {
-      font-size: 12px; font-weight: 700;
-      padding: 6px 14px; border-radius: 100px;
-      display: inline-flex; align-items: center; gap: 6px;
+    .offer-wordmark {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 19px; font-weight: 700; letter-spacing: -0.3px;
+      color: #fff;
     }
-    .offer-1 .offer-link { background: rgba(234,179,8,0.15); color: var(--gold-l); }
-    .offer-2 .offer-link { background: rgba(59,130,246,0.15); color: var(--blue-e); }
-    .offer-3 .offer-link { background: rgba(236,72,153,0.15); color: var(--pink-l); }
+    .offer-wordmark .wm-accent {
+      background: var(--brand-grad);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      font-weight: 800;
+    }
+    .offer-cashback {
+      display: flex; align-items: center; gap: 12px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin-bottom: 16px;
+    }
+    .offer-cashback-amounts {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 17px; font-weight: 700; color: #fff;
+      white-space: nowrap;
+    }
+    .offer-cashback-amounts .to {
+      background: var(--brand-grad);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .offer-cashback-label {
+      font-size: 11.5px; color: var(--text-muted); line-height: 1.4;
+    }
+    .offer-cta {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; padding: 14px 16px; border-radius: 100px;
+      font-size: 13px; font-weight: 700; letter-spacing: 0.3px;
+      background: var(--brand-grad);
+      color: var(--brand-btn-text, #fff);
+      box-shadow: 0 8px 22px -6px var(--brand-glow-2, rgba(124,58,237,0.5));
+      transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+    }
+    .offer-cta:hover { transform: scale(1.02); opacity: 0.94; }
+    .offer-cta:active { transform: scale(0.97); }
+    .offer-legal {
+      font-size: 10px; color: rgba(255,255,255,0.3);
+      text-align: center; margin-top: 10px; letter-spacing: 0.3px;
+    }
+    .offer-claim {
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+      font-size: 12px; font-weight: 600; color: var(--text-muted);
+      margin-top: 12px; text-align: center;
+    }
+    .offer-claim a {
+      color: var(--brand-accent, var(--violet-l));
+      font-weight: 700; text-decoration: underline;
+      text-underline-offset: 2px;
+    }
 
     /* ─── HOW IT WORKS ──────────────────────────────────────────── */
     #how {
@@ -712,7 +764,7 @@
       .container { max-width: 580px; }
       .hero-title { font-size: 52px; }
       .hero-inner { padding: 130px 40px 80px; }
-      .stats-grid { grid-template-columns: repeat(4, 1fr); }
+      .stats-grid-3 { grid-template-columns: repeat(3, 1fr); }
       .hero-ctas { flex-direction: row; justify-content: center; }
     }
     @media (min-width: 768px) {
@@ -794,30 +846,26 @@
 <!-- ─── STATS ────────────────────────────────────────────────────── -->
 <section id="stats">
   <div class="container">
-    <div class="stats-grid">
+    <div class="stats-grid stats-grid-3">
       <div class="stat-card fade-up">
         <div class="stat-dot"></div>
-        <div class="stat-val">[MEMBRES]</div>
+        <div class="stat-val" data-count-to="60">0</div>
         <div class="stat-label">Membres<br/>Discord</div>
       </div>
       <div class="stat-card fade-up fade-up-d1">
         <div class="stat-dot"></div>
-        <div class="stat-val">[INSTA]</div>
+        <div class="stat-val" data-count-to="160">0</div>
         <div class="stat-label">Abonnés<br/>Instagram</div>
       </div>
       <div class="stat-card fade-up fade-up-d2">
         <div class="stat-dot"></div>
-        <div class="stat-val">[TIKTOK]</div>
-        <div class="stat-label">Abonnés<br/>TikTok</div>
-      </div>
-      <div class="stat-card fade-up fade-up-d3">
-        <div class="stat-dot"></div>
-        <div class="stat-val">[YOUTUBE]</div>
+        <div class="stat-val" data-count-to="100">0</div>
         <div class="stat-label">Abonnés<br/>YouTube</div>
       </div>
     </div>
   </div>
 </section>
+
 
 <!-- ─── ABOUT ────────────────────────────────────────────────────── -->
 <section id="about">
@@ -863,7 +911,7 @@
               </div>
             </div>
             <div class="casino-tag">Casino en ligne</div>
-            <p class="casino-offer">Reçois un bonus de<span class="bonus-num">300% jusqu'à 1 500 €</span></p>
+            <p class="casino-offer">Recevez un bonus de<span class="bonus-num">300% jusqu'à 1 500 €</span></p>
             <a href="https://go.affiliatemystake.com/visit/?bta=3164179&brand=mystake" target="_blank" rel="noopener" class="casino-cta">
               DÉCOUVRIR MYSTAKE
             </a>
@@ -888,7 +936,7 @@
               </div>
             </div>
             <div class="casino-tag">Casino en ligne</div>
-            <p class="casino-offer">Reçois un bonus de<span class="bonus-num">200% jusqu'à 5 000 €</span>dès le 1er dépôt</p>
+            <p class="casino-offer">Recevez un bonus de<span class="bonus-num">200% jusqu'à 5 000 €</span>dès le 1er dépôt</p>
             <a href="https://record.discasinoaffiliates.com/_xoM1XgGUlgLk9mx2SfmU_WNd7ZgqdRLk/1/" target="_blank" rel="noopener" class="casino-cta">
               DÉCOUVRIR FAST SLOT
             </a>
@@ -913,7 +961,7 @@
               </div>
             </div>
             <div class="casino-tag">Casino en ligne</div>
-            <p class="casino-offer">Reçois un bonus de<span class="bonus-num">550%</span>dès le 1er dépôt</p>
+            <p class="casino-offer">Recevez un bonus de<span class="bonus-num">550%</span>dès le 1er dépôt</p>
             <a href="https://celsius.games/lRiFEQwgYE" target="_blank" rel="noopener" class="casino-cta">
               DÉCOUVRIR CELSIUS
             </a>
@@ -934,32 +982,54 @@
   <div class="container">
     <div class="section-label"><span class="dot"></span>LES OFFRES DU MOMENT</div>
     <h2 class="section-title">Offres <span style="background:linear-gradient(135deg,#EAB308,#F97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">disponibles</span></h2>
-    <p class="section-sub">Les offres de bienvenue disponibles via mes liens. Soumises aux conditions de chaque plateforme.</p>
+    <p class="section-sub">Les offres de bienvenue disponibles via mes liens, plus un bonus perso offert par Kiri sur ton premier dépôt.</p>
     <div class="offers-grid">
-      <div class="offer-card offer-1 fade-up">
-        <div class="offer-icon">🎰</div>
-        <div class="offer-info">
-          <div class="offer-name">Fast Slot</div>
-          <div class="offer-bonus">Offre disponible selon les conditions de la plateforme</div>
-          <a href="https://record.discasinoaffiliates.com/_xoM1XgGUlgLk9mx2SfmU_WNd7ZgqdRLk/1/" target="_blank" rel="noopener" class="offer-link">Voir l'offre →</a>
+
+      <div class="offer-card casino-mystake fade-up">
+        <div class="top-bar"></div>
+        <div class="offer-top">
+          <div class="offer-badge-num">01</div>
+          <div class="offer-wordmark">My<span class="wm-accent">Stake</span></div>
         </div>
-      </div>
-      <div class="offer-card offer-2 fade-up fade-up-d1">
-        <div class="offer-icon">⚡</div>
-        <div class="offer-info">
-          <div class="offer-name">MyStake</div>
-          <div class="offer-bonus">Offre disponible selon les conditions de la plateforme</div>
-          <a href="https://go.affiliatemystake.com/visit/?bta=3164179&brand=mystake" target="_blank" rel="noopener" class="offer-link">Voir l'offre →</a>
+        <div class="offer-cashback">
+          <div class="offer-cashback-amounts">20 € <span class="to">→ 35 €</span></div>
+          <div class="offer-cashback-label">Dépose 20€ sur MyStake, Kiri t'ajoute la différence jusqu'à 35€ offerts de sa poche</div>
         </div>
+        <a href="https://go.affiliatemystake.com/visit/?bta=3164179&brand=mystake" target="_blank" rel="noopener" class="offer-cta">VOIR L'OFFRE MYSTAKE</a>
+        <p class="offer-claim">🎫 Pour réclamer tes 35€, <a href="https://discord.gg/Y5TGhVBzjn" target="_blank" rel="noopener">ouvre un ticket sur le Discord</a></p>
+        <p class="offer-legal">18+ · Bonus perso Kiri soumis à conditions · Jouez de manière responsable</p>
       </div>
-      <div class="offer-card offer-3 fade-up fade-up-d2">
-        <div class="offer-icon">🌡️</div>
-        <div class="offer-info">
-          <div class="offer-name">Celsius</div>
-          <div class="offer-bonus">Offre disponible selon les conditions de la plateforme</div>
-          <a href="https://celsius.games/lRiFEQwgYE" target="_blank" rel="noopener" class="offer-link">Voir l'offre →</a>
+
+      <div class="offer-card casino-fastslot fade-up fade-up-d1">
+        <div class="top-bar"></div>
+        <div class="offer-top">
+          <div class="offer-badge-num">02</div>
+          <div class="offer-wordmark"><span class="wm-accent">Fast</span>Slot</div>
         </div>
+        <div class="offer-cashback">
+          <div class="offer-cashback-amounts">20 € <span class="to">→ 35 €</span></div>
+          <div class="offer-cashback-label">Dépose 20€ sur Fast Slot, Kiri t'ajoute la différence jusqu'à 35€ offerts de sa poche</div>
+        </div>
+        <a href="https://record.discasinoaffiliates.com/_xoM1XgGUlgLk9mx2SfmU_WNd7ZgqdRLk/1/" target="_blank" rel="noopener" class="offer-cta">VOIR L'OFFRE FAST SLOT</a>
+        <p class="offer-claim">🎫 Pour réclamer tes 35€, <a href="https://discord.gg/Y5TGhVBzjn" target="_blank" rel="noopener">ouvre un ticket sur le Discord</a></p>
+        <p class="offer-legal">18+ · Bonus perso Kiri soumis à conditions · Jouez de manière responsable</p>
       </div>
+
+      <div class="offer-card casino-celsius fade-up fade-up-d2">
+        <div class="top-bar"></div>
+        <div class="offer-top">
+          <div class="offer-badge-num">03</div>
+          <div class="offer-wordmark">Celsius<span class="wm-accent">°</span></div>
+        </div>
+        <div class="offer-cashback">
+          <div class="offer-cashback-amounts">20 € <span class="to">→ 35 €</span></div>
+          <div class="offer-cashback-label">Dépose 20€ sur Celsius, Kiri t'ajoute la différence jusqu'à 35€ offerts de sa poche</div>
+        </div>
+        <a href="https://celsius.games/lRiFEQwgYE" target="_blank" rel="noopener" class="offer-cta">VOIR L'OFFRE CELSIUS</a>
+        <p class="offer-claim">🎫 Pour réclamer tes 35€, <a href="https://discord.gg/Y5TGhVBzjn" target="_blank" rel="noopener">ouvre un ticket sur le Discord</a></p>
+        <p class="offer-legal">18+ · Bonus perso Kiri soumis à conditions · Jouez de manière responsable</p>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1090,6 +1160,30 @@
     });
   }, { threshold: 0.12 });
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  /* ── Compteurs animés (stats) ── */
+  function animateCount(el) {
+    const target = parseInt(el.getAttribute('data-count-to'), 10) || 0;
+    const duration = 1400;
+    const start = performance.now();
+    function tick(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(eased * target);
+      if (progress < 1) requestAnimationFrame(tick);
+      else el.textContent = target;
+    }
+    requestAnimationFrame(tick);
+  }
+  const countObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting && !e.target.dataset.counted) {
+        e.target.dataset.counted = 'true';
+        animateCount(e.target);
+      }
+    });
+  }, { threshold: 0.4 });
+  document.querySelectorAll('[data-count-to]').forEach(el => countObserver.observe(el));
 
   /* ── Mobile nav ── */
   let navOpen = false;
