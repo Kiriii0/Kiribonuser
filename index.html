@@ -787,9 +787,113 @@
       height: 1px; width: 100%; max-width: 300px; margin: 0 auto;
       background: linear-gradient(90deg, transparent, rgba(124,58,237,0.4), transparent);
     }
+
+    /* ─── POPUP OFFRE DU MOMENT ─────────────────────────────────── */
+    .promo-overlay {
+      position: fixed; inset: 0; z-index: 200;
+      background: rgba(4,3,15,0.82);
+      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+      display: none; align-items: center; justify-content: center;
+      padding: 20px;
+      opacity: 0; transition: opacity 0.3s ease;
+    }
+    .promo-overlay.open { display: flex; }
+    .promo-overlay.visible { opacity: 1; }
+    .promo-modal {
+      position: relative;
+      width: 100%; max-width: 360px;
+      background: var(--card);
+      border: 1px solid rgba(59,130,246,0.4);
+      border-radius: 26px;
+      padding: 32px 24px 26px;
+      text-align: center;
+      box-shadow: 0 0 0 1px rgba(59,130,246,0.15) inset, 0 30px 80px -20px rgba(59,130,246,0.5);
+      transform: translateY(16px) scale(0.97);
+      transition: transform 0.3s ease;
+    }
+    .promo-overlay.visible .promo-modal { transform: translateY(0) scale(1); }
+    .promo-modal::before {
+      content: ''; position: absolute; top: -70px; left: 50%; transform: translateX(-50%);
+      width: 260px; height: 260px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(59,130,246,0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .promo-close {
+      position: absolute; top: 14px; right: 14px;
+      width: 30px; height: 30px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--text-muted); font-size: 16px;
+      z-index: 1;
+    }
+    .promo-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+      color: #93C5FD; text-transform: uppercase;
+      background: rgba(59,130,246,0.12);
+      border: 1px solid rgba(59,130,246,0.35);
+      padding: 6px 14px; border-radius: 100px;
+      margin-bottom: 18px;
+    }
+    .promo-wheel-emoji { font-size: 52px; margin-bottom: 14px; }
+    .promo-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 24px; font-weight: 700; line-height: 1.25;
+      margin-bottom: 10px;
+    }
+    .promo-title .amt {
+      background: linear-gradient(135deg, #3B82F6, #60A5FA);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .promo-sub {
+      font-size: 13.5px; color: var(--text-muted); line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    .promo-btn-primary {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; padding: 16px 20px; border-radius: 100px;
+      background: linear-gradient(135deg, #3B82F6, #60A5FA);
+      color: #fff; font-size: 14.5px; font-weight: 700;
+      box-shadow: 0 10px 30px -8px rgba(59,130,246,0.6);
+      margin-bottom: 10px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .promo-btn-primary:hover { transform: translateY(-2px); }
+    .promo-btn-primary:active { transform: scale(0.97); }
+    .promo-btn-secondary {
+      display: flex; align-items: center; justify-content: center;
+      width: 100%; padding: 13px 20px; border-radius: 100px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--text-muted); font-size: 13px; font-weight: 600;
+    }
+    .promo-btn-secondary:active { transform: scale(0.97); }
+    .promo-legal {
+      font-size: 10px; color: rgba(255,255,255,0.3);
+      margin-top: 16px; letter-spacing: 0.3px;
+    }
   </style>
 </head>
 <body>
+
+<!-- ─── POPUP OFFRE DU MOMENT ────────────────────────────────────── -->
+<div class="promo-overlay" id="promoOverlay">
+  <div class="promo-modal">
+    <button class="promo-close" onclick="closePromo()" aria-label="Fermer">✕</button>
+    <div class="promo-badge"><span class="dot"></span>Offre du moment</div>
+    <div class="promo-wheel-emoji">🎡</div>
+    <h2 class="promo-title">Jusqu'à <span class="amt">750€</span><br/>à gagner en tournant la roue</h2>
+    <p class="promo-sub">Celsius Casino t'offre un tour de roue avec un bonus de dépôt à la clé. Tente ta chance dès maintenant.</p>
+    <a href="https://celsius.games/lRiFEQwgYE" target="_blank" rel="noopener" class="promo-btn-primary" onclick="closePromo()">
+      🎡 TOURNE LA ROUE
+    </a>
+    <button class="promo-btn-secondary" onclick="closePromo(); document.getElementById('offers').scrollIntoView({behavior:'smooth'});">
+      Voir les autres offres
+    </button>
+    <p class="promo-legal">18+ · Offre soumise aux conditions de la plateforme · Jouez de manière responsable</p>
+  </div>
+</div>
 
 <!-- ─── MOBILE NAV ───────────────────────────────────────────────── -->
 <nav class="mobile-nav" id="mobileNav">
@@ -1184,6 +1288,26 @@
     });
   }, { threshold: 0.4 });
   document.querySelectorAll('[data-count-to]').forEach(el => countObserver.observe(el));
+
+  /* ── Popup "Offre du moment" ── */
+  function closePromo() {
+    const overlay = document.getElementById('promoOverlay');
+    overlay.classList.remove('visible');
+    setTimeout(() => overlay.classList.remove('open'), 300);
+  }
+  window.addEventListener('load', () => {
+    if (!sessionStorage.getItem('kiribonus_promo_seen')) {
+      setTimeout(() => {
+        const overlay = document.getElementById('promoOverlay');
+        overlay.classList.add('open');
+        requestAnimationFrame(() => overlay.classList.add('visible'));
+        sessionStorage.setItem('kiribonus_promo_seen', '1');
+      }, 900);
+    }
+  });
+  document.getElementById('promoOverlay').addEventListener('click', (e) => {
+    if (e.target.id === 'promoOverlay') closePromo();
+  });
 
   /* ── Mobile nav ── */
   let navOpen = false;
