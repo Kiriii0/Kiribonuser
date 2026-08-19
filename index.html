@@ -869,6 +869,44 @@
       color: var(--text-muted); font-size: 13px; font-weight: 600;
     }
     .promo-btn-secondary:active { transform: scale(0.97); }
+    .promo-divider {
+      display: flex; align-items: center; gap: 10px;
+      margin: 18px 0 14px;
+      font-size: 10.5px; font-weight: 700; letter-spacing: 1px;
+      color: rgba(255,255,255,0.3); text-transform: uppercase;
+    }
+    .promo-divider::before, .promo-divider::after {
+      content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.1);
+    }
+    .promo-discord {
+      display: flex; align-items: center; gap: 12px;
+      background: rgba(88,101,242,0.1);
+      border: 1px solid rgba(88,101,242,0.35);
+      border-radius: 16px;
+      padding: 12px 14px;
+      text-align: left;
+    }
+    .promo-discord-icon {
+      width: 38px; height: 38px; border-radius: 11px; flex-shrink: 0;
+      background: #5865F2;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 17px;
+    }
+    .promo-discord-text { flex: 1; min-width: 0; }
+    .promo-discord-amt {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14.5px; font-weight: 700; color: #fff; line-height: 1.3;
+    }
+    .promo-discord-amt span {
+      background: linear-gradient(135deg, #818CF8, #A5B4FC);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .promo-discord-label { font-size: 11px; color: var(--text-muted); margin-top: 1px; }
+    .promo-discord-go {
+      flex-shrink: 0; font-size: 11px; font-weight: 700;
+      color: #A5B4FC; padding: 7px 12px; border-radius: 100px;
+      background: rgba(88,101,242,0.2); white-space: nowrap;
+    }
     .promo-legal {
       font-size: 10px; color: rgba(255,255,255,0.3);
       margin-top: 16px; letter-spacing: 0.3px;
@@ -891,6 +929,15 @@
     <button class="promo-btn-secondary" onclick="closePromo(); document.getElementById('offers').scrollIntoView({behavior:'smooth'});">
       Voir les autres offres
     </button>
+    <div class="promo-divider">Et aussi</div>
+    <a href="https://discord.gg/Y5TGhVBzjn" target="_blank" rel="noopener" class="promo-discord" onclick="closePromo()">
+      <div class="promo-discord-icon">💬</div>
+      <div class="promo-discord-text">
+        <div class="promo-discord-amt"><span>135€</span> à gagner</div>
+        <div class="promo-discord-label">Chaque soir sur le Discord</div>
+      </div>
+      <div class="promo-discord-go">Rejoindre →</div>
+    </a>
     <p class="promo-legal">18+ · Offre soumise aux conditions de la plateforme · Jouez de manière responsable</p>
   </div>
 </div>
